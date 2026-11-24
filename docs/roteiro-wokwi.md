@@ -96,7 +96,7 @@ Preencha uma linha para cada falha encontrada no ensaio. Use o ID do passo e o a
 
 ## Provas locais já realizadas
 
-Provas fornecidas pelo orquestrador na base de integração `238f439`. A compilação confirma o tamanho do binário e a alocação global reportada pelo compilador. Comportamento do sensor, RGB e microSD, memória em execução e captura de ponta a ponta ainda dependem do ensaio no Wokwi. [README](../README.md) · [Relatório técnico](relatorio.md#exemplo-observado-na-prova-local)
+Provas registradas pelo grupo, com apoio de IA, na base de integração `238f439`. A compilação confirma o tamanho do binário e a alocação global reportada pelo compilador. Comportamento do sensor, RGB e microSD, memória em execução e captura de ponta a ponta ainda dependem do ensaio no Wokwi. [README](../README.md) · [Relatório técnico](relatorio.md#exemplo-observado-na-prova-local)
 
 | Prova | Resultado local | Fonte |
 |---|---|---|
