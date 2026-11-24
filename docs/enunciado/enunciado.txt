@@ -1,0 +1,39 @@
+O trabalho final consiste em construir, em grupo, um sistema de IoT completo: ele mede uma grandeza do mundo real, decide localmente o que fazer com essa informação, transmite os dados pela rede e apresenta o resultado a um usuário. O tema é livre.
+
+A especificação completa está no PDF anexado. O texto abaixo resume o essencial.
+
+GRUPOS
+De 1 a 5 integrantes.
+
+PROPOSTA
+Antes de iniciar a montagem, cada grupo entrega uma página com problema, usuário, componentes, comunicação e interface. A aprovação da proposta é condição para o desenvolvimento do projeto.
+
+REQUISITOS OBRIGATÓRIOS
+R1 - Percepção e ação: ao menos um sensor e um atuador, com o atuador reagindo a uma leitura.
+R2 - Decisão local: uma regra executada no próprio dispositivo, que funcione sem internet.
+R3 - Comunicação sem fio: Wi-Fi, Bluetooth ou MQTT, com a escolha justificada.
+R4 - Payload estruturado: formato definido pelo grupo e documentado, com exemplo real.
+R5 - Interface: o estado do sistema visível sem o Monitor Serial.
+
+MONTAGEM
+O projeto pode ser desenvolvido em hardware físico, no simulador Wokwi ou em ambos, sem diferença de nota. Em qualquer caso, o sistema precisa ser executado ao vivo durante a apresentação. Projetos que existam apenas no relatório, ou cuja simulação não execute, não cumprem o requisito de funcionamento.
+
+O QUE ENTREGAR- Relatório técnico em PDF, de 8 a 15 páginas, conforme a estrutura do anexo.
+- Repositório no GitHub ou pasta compactada, com código, README, arquivo de exemplo de credenciais e .gitignore.
+- Vídeo de 3 a 5 minutos com o sistema em funcionamento.
+- Slides para apresentação de até 10 minutos.
+- Link do projeto no Wokwi, quando for o caso.
+
+AVALIAÇÃO
+Funcionamento 35%, Arquitetura 20%, Código 20%, Interface 10% e Apresentação 15%.
+Adicional de segurança: até 10% na nota final, mediante tratamento explícito da segurança documentado no relatório.
+A apresentação inclui defesa individual: qualquer integrante pode ser questionado sobre qualquer parte do projeto, e a nota é individual.
+
+PRAZO
+Entrega e apresentação até 23/11/2026. Não há tolerância para atrasos: entregas posteriores a essa data não são aceitas e o trabalho.
+
+ENVIO
+Um integrante envia os arquivos e os links por esta tarefa, com o nome de todos no relatório. Os demais marcam a tarefa como concluída.
+
+USO DE IA
+Ferramentas de inteligência artificial podem ser usadas como apoio. O relatório deve declarar o que foi produzido com esse apoio e como o grupo verificou o resultado. Todo o código entregue precisa ser compreendido pelos integrantes, o que é verificado na defesa individual.

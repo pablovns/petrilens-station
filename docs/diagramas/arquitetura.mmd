@@ -1,0 +1,34 @@
+---
+config:
+  flowchart:
+    nodeSpacing: 20
+    rankSpacing: 28
+    padding: 8
+    subGraphTitleMargin:
+      top: 3
+      bottom: 12
+---
+flowchart TB
+    subgraph percepcao["Percepção"]
+        entradas["Presença, botão,<br/>LDR e microSD"]
+        saidas["Barra de LEDs<br/>e LED RGB"]
+    end
+    subgraph rede["Rede"]
+        wifi["Wi-Fi 2,4 GHz"]
+        gateway["Gateway privado do Wokwi<br/>no notebook"]
+        wifi --> gateway
+    end
+    subgraph processamento["Processamento"]
+        esp["ESP32 simulado<br/>Leitura e captura"]
+        spring["API Java/Spring<br/>no notebook"]
+        dados["H2 e JPEGs<br/>em disco"]
+        spring --> dados
+    end
+    subgraph aplicacao["Aplicação"]
+        painel["Painel web<br/>no navegador"]
+    end
+    entradas --> esp
+    esp --> saidas
+    esp -->|"HTTP / JSON"| wifi
+    gateway -->|"HTTP local"| spring
+    painel -->|"HTTP / localhost"| spring

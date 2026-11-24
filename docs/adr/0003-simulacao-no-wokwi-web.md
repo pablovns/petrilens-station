@@ -10,3 +10,5 @@ A proposta aprovada fixa a montagem "apenas no Wokwi". Não existe forma gratuit
 - O tráfego do gateway público é monitorado pelo Wokwi: só dados e imagens fictícios.
 - O projeto Wokwi compartilhado é público: qualquer token colocado nele fica exposto. Usar um token exclusivo da demo e registrar o risco no checklist OWASP.
 - O link do projeto Wokwi é item de entrega e precisa estar com compartilhamento ativo.
+
+A [ADR 0008](0008-wokwi-vscode-com-gateway-local.md) complementa esta decisão com o caminho local adotado para a demonstração.

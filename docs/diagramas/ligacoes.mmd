@@ -1,0 +1,7 @@
+flowchart LR
+    ldr["LDR — AO"] -->|"GPIO 34"| esp["ESP32 DevKit V1"]
+    chave["Presença — terminal 2"] -->|"GPIO 35"| esp
+    botao["Botão — contato 1.l"] -->|"GPIO 36"| esp
+    esp <-->|"SPI: SCK 18, MISO 19, MOSI 23, CS 33"| sd["microSD"]
+    esp -->|"10 GPIOs, 1 kΩ por segmento"| barra["Barra de LEDs"]
+    esp -->|"GPIOs 25, 26, 32, 1 kΩ por canal"| rgb["LED RGB"]

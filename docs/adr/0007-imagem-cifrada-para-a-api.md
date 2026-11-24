@@ -14,3 +14,5 @@ A imagem da captura só pode ser lida pela API, nem por quem está na mesma rede
 - Na demo, a imagem original está no próprio projeto Wokwi público: a proteção demonstrada é a do transporte, que passa a valer de fato com uma câmera real.
 - O GCM também detecta adulteração: imagem alterada no caminho é recusada pelo servidor.
 - Esta é a correção derivada do checklist OWASP IoT Top 10 (transferência insegura de dados) e reforça o item de criptografia na comunicação do adicional de segurança.
+
+A [ADR 0008](0008-wokwi-vscode-com-gateway-local.md) mantém a imagem cifrada até a API e registra a exceção de transporte HTTP para a demonstração pelo gateway privado local.

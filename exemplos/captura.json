@@ -1,0 +1,3 @@
+{"estacao_id":"est-01","lote_id":"L2026-001","amostra_id":"A1","lux":542,
+ "resolucao":"800x600","simulacao":true,"chave_cifrada":"<Base64 RSA-OAEP>",
+ "iv":"<Base64 IV>","imagem_cifrada":"<Base64 AES-GCM>"}

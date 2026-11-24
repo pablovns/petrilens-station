@@ -1,0 +1,9 @@
+{
+  "estacao_id": "est-01",
+  "presenca": false,
+  "lux": 0,
+  "brilho": 10,
+  "amostra_id": null,
+  "rssi": -55,
+  "uptime_s": 5
+}

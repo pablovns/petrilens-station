@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetriLens — estação</title>
+  <style>
+    body { margin: 0; background: #f3f5f7; color: #1d2329; font: 16px/1.45 system-ui, sans-serif; }
+    main { max-width: 960px; margin: 0 auto; padding: 16px; }
+    h1 { margin: 0 0 12px; font-size: 1.6rem; }
+    h2 { margin: 0 0 10px; font-size: 1.15rem; }
+    section { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+    p { margin: 6px 0; }
+    p:empty { display: none; }
+    #conexao { display: inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 1.1rem; background: #e4e7eb; color: #4a5560; }
+    #conexao[data-online="true"] { background: #d3f5dc; color: #136c2e; }
+    #estado { color: #5b6670; font-size: .9rem; }
+    #captura-recusa { padding: 8px 12px; border-radius: 6px; background: #fde2e1; color: #9b1c1c; font-weight: 700; }
+    dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 10px 0 0; }
+    dl div { background: #f7f9fb; border: 1px solid #e3e8ed; border-radius: 6px; padding: 8px 10px; }
+    dt { font-size: .8rem; color: #5b6670; text-transform: uppercase; letter-spacing: .03em; }
+    dd { margin: 2px 0 0; font-size: 1.3rem; font-weight: 700; }
+    form, fieldset { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    fieldset { border: 0; padding: 0; margin: 0; }
+    legend { font-weight: 600; margin-bottom: 6px; width: 100%; }
+    button, select, input { font: inherit; padding: 6px 12px; border: 1px solid #b8c1ca; border-radius: 6px; background: #fff; }
+    button { cursor: pointer; background: #1f5fa8; border-color: #1f5fa8; color: #fff; font-weight: 600; }
+    button:disabled { opacity: .5; cursor: default; }
+    input[type=number] { width: 5em; }
+    .valor { font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    caption { text-align: left; font-weight: 600; padding-bottom: 4px; }
+    th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e3e8ed; }
+    th { font-size: .85rem; color: #5b6670; }
+    td { padding: 4px 8px; }
+    td img { display: block; width: 80px; height: auto; border-radius: 4px; }
+    section { overflow-x: auto; overflow-wrap: anywhere; }
+    @media (max-width: 600px) {
+      main { padding: 8px; }
+      h1 { font-size: 1.3rem; }
+      section { padding: 10px; margin-bottom: 10px; }
+      dl { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 6px; }
+      dd { font-size: 1.1rem; }
+      th, td { padding: 4px; }
+      td img { width: 64px; }
+    }
+  </style>
+  <script src="painel.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Estação PetriLens</h1>
+    <section>
+      <h2>Estação</h2>
+      <p id="conexao" role="status">Consultando servidor…</p>
+      <p>Última sincronização: <span id="ultima" class="valor">nenhuma</span></p>
+      <p id="estado">Aguardando sincronização da estação.</p>
+      <p id="captura-recusa" role="status"></p>
+      <dl>
+        <div><dt>Placa no berço</dt><dd id="presenca">—</dd></div>
+        <div><dt>Luz medida</dt><dd id="lux">—</dd></div>
+        <div><dt>Brilho configurado</dt><dd id="brilho">—</dd></div>
+        <div><dt>Amostra informada pela estação</dt><dd id="amostra">—</dd></div>
+        <div><dt>Sinal Wi-Fi (RSSI)</dt><dd id="rssi">—</dd></div>
+        <div><dt>Tempo ligada</dt><dd id="uptime">—</dd></div>
+      </dl>
+    </section>
+    <section>
+      <h2>Amostra</h2>
+      <form id="selecao">
+        <label for="seletor">Amostra selecionada</label>
+        <select id="seletor" required disabled></select>
+        <button id="selecionar" type="submit" disabled>Selecionar</button>
+      </form>
+      <p id="selecao-resultado" role="status"></p>
+      <p>Seleção no servidor: <span id="selecionada" class="valor">Consultando…</span></p>
+    </section>
+    <section>
+      <h2>Comandos da estação</h2>
+      <form id="comandos-form">
+        <fieldset id="comandos-controles">
+          <legend>Enviar comando</legend>
+          <button type="button" value="capturar">Capturar</button>
+          <button type="button" value="status">Atualizar estado</button>
+          <label for="novo-brilho">Brilho (0 a 10)</label>
+          <input id="novo-brilho" type="number" min="0" max="10" step="1" required value="10">
+          <button type="submit">Ajustar brilho</button>
+        </fieldset>
+      </form>
+      <p id="comandos-resultado" role="status"></p>
+      <p id="comandos-estado">Consultando comandos…</p>
+      <table>
+        <caption>Histórico de comandos</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Comando</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="comandos"></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Capturas da amostra selecionada</h2>
+      <p id="capturas-estado" role="status">Consultando capturas…</p>
+      <table>
+        <caption id="capturas-amostra">Capturas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Recebida em</th>
+            <th scope="col">Lux</th>
+            <th scope="col">Imagem</th>
+          </tr>
+        </thead>
+        <tbody id="capturas"></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

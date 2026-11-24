@@ -10,7 +10,7 @@ Antes de trabalhar, leia:
 - `docs/decisoes.md`: demais decisões de comportamento e implementação.
 - `GLOSSARY.md`: termos do domínio.
 - `docs/uso-ia.md`: regra da disciplina sobre IA; registre ali o que for produzido com apoio de IA.
-- `docs/enunciado/`: enunciado e especificação do professor (só local, não versionados).
+- `docs/enunciado/`: enunciado, especificação e aviso do professor sobre entrega e apresentação.
 
 ## Diretriz: simples e funcionando
 

@@ -1,0 +1,7 @@
+# Wokwi for VS Code: simula este sketch localmente, com o gateway privado embutido na extensão.
+# Compile antes: arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 --build-path firmware/sketch/build firmware/sketch
+# O conteúdo de sdcard/ é copiado para o microSD simulado a cada início.
+[wokwi]
+version = 1
+firmware = "build/sketch.ino.merged.bin"
+elf = "build/sketch.ino.elf"
